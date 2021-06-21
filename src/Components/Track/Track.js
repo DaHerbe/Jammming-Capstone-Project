@@ -10,6 +10,7 @@ export class Track extends React.Component {
     }
 
     renderAction() {
+        //Determines if the button is for removal or addition of the track
         if(this.props.isRemoval) {
             return (<button className="Track-action" onClick={this.removeTrack} >-</button>)
         } else {
@@ -17,10 +18,12 @@ export class Track extends React.Component {
         }
     }
 
+    //Wrapper for the add function
     addTrack() {
         this.props.onAdd(this.props.track);
     }
 
+    //Wrapper for the remove function
     removeTrack() {
         this.props.onRemove(this.props.track);
     }
@@ -29,9 +32,11 @@ export class Track extends React.Component {
         return (
             <div className="Track">
                 <div className="Track-information">
+                    {/* Displays an individual track */}
                     <h3>{this.props.track.name}</h3>
                     <p>{this.props.track.artist} | {this.props.track.album}</p>
                 </div>
+                {/* Renders the relevant button */}
                 {this.renderAction()}
             </div>
         );
